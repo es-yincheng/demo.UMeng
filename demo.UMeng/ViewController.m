@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "TestViewController.h"
 @interface ViewController ()
 
 @end
@@ -22,6 +22,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)jump:(UIButton *)sender {
+    NSLog(@"hhhh");
+    [self.navigationController pushViewController:[[TestViewController alloc] initWithTitle:@"test"] animated:YES];
 }
 
 @end
