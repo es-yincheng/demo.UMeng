@@ -32,7 +32,7 @@
 
 -(void)jump
 {
-    [YCUmengBase shareText:@"" Image:@"" delegate:self ToSnsNames:UMShareToSina, nil];
+    [YCUmengBase shareText:@"" Image:@"" delegate:self ToSnsNames:nil];
     [self.navigationController pushViewController:[[Test2ViewController alloc] initWithTitle:@"2"] animated:YES];
 }
 @end

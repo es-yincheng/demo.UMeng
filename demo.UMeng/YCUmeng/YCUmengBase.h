@@ -6,141 +6,135 @@
 #import <Foundation/Foundation.h>
 #import "MobClick.h"
 #import "UMSocial.h"
-typedef enum {
-/**
- * 默认分享到微信,QQ,新浪
- */
-    YCShareDefault,
 /**
  新浪微博
  */
-    YCShareToSina,
+extern NSString *const UMShareToSina;
 
 /**
  腾讯微博
  */
-    YCShareToTencent,
+extern NSString *const UMShareToTencent;
 
 /**
  人人网
  */
-    YCShareToRenren,
+extern NSString *const UMShareToRenren;
 
 /**
  豆瓣
  */
-    YCShareToDouban,
+extern NSString *const UMShareToDouban;
 
 /**
  QQ空间
  */
-    YCShareToQzone,
+extern NSString *const UMShareToQzone;
 
 /**
  邮箱
  */
-    YCShareToEmail,
+extern NSString *const UMShareToEmail;
 
 /**
  短信
  */
-    YCShareToSms,
+extern NSString *const UMShareToSms;
 
 /**
  微信好友
  */
-    YCShareToWechatSession,
+extern NSString *const UMShareToWechatSession;
 
 /**
  微信朋友圈
  */
-    YCShareToWechatTimeline,
+extern NSString *const UMShareToWechatTimeline;
 
 /**
  微信收藏
  */
-    YCShareToWechatFavorite,
+extern NSString *const UMShareToWechatFavorite;
 
 /**
  支付宝好友
  */
-    YCShareToAlipaySession,
+extern NSString *const UMShareToAlipaySession;
 
 /**
  手机QQ
  */
-    YCShareToQQ,
+extern NSString *const UMShareToQQ;
 
 /**
  Facebook
  */
-    YCShareToFacebook,
+extern NSString *const UMShareToFacebook;
 
 /**
  Twitter
  */
-    YCShareToTwitter,
+extern NSString *const UMShareToTwitter;
 
 
 /**
  易信好友
  */
-    YCShareToYXSession,
+extern NSString *const UMShareToYXSession;
 
 /**
  易信朋友圈
  */
-    YCShareToYXTimeline,
+extern NSString *const UMShareToYXTimeline;
 
 /**
  来往好友
  */
-    YCShareToLWSession,
+extern NSString *const UMShareToLWSession;
 
 /**
  来往朋友圈
  */
-    YCShareToLWTimeline,
+extern NSString *const UMShareToLWTimeline;
 
 /**
  分享到Instragram
  */
-    YCShareToInstagram,
+extern NSString *const UMShareToInstagram;
 
 /**
  分享到Whatsapp
  */
-    YCShareToWhatsapp,
+extern NSString *const UMShareToWhatsapp;
 
 /**
  分享到Line
  */
-    YCShareToLine,
+extern NSString *const UMShareToLine;
 
 /**
  分享到Tumblr
  */
-    YCShareToTumblr,
+extern NSString *const UMShareToTumblr;
 
 /**
  分享到Pinterest
  */
-    YCShareToPinterest,
+extern NSString *const UMShareToPinterest;
 
 /**
  分享到KakaoTalk
  */
-    YCShareToKakaoTalk,
+extern NSString *const UMShareToKakaoTalk;
 
 /**
  分享到Flickr
  */
-    YCShareToFlickr,
+extern NSString *const UMShareToFlickr;
 
-} YCSnsName;
 
 @interface YCUmengBase : NSObject
 +(void)StartUpYCUmengAnalytics:(bool)analytics OnlineConfig:(bool)online IM:(bool)im Social:(bool)share;
 
-+ (void)shareText:(NSString*)text Image:(NSString*)imageName delegate:(id)delegate ToSnsNames:(YCSnsName)shareto, ... NS_REQUIRES_NIL_TERMINATION;
++ (void)shareText:(NSString*)text Image:(NSString*)imageName delegate:(id)delegate ToSnsNames:(NSArray*)names;
 @end

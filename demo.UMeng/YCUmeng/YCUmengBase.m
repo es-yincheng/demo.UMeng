@@ -7,36 +7,24 @@
 
 @implementation YCUmengBase
 
-+ (void)shareText:(NSString *)text Image:(NSString *)imageName delegate:(id)delegate ToSnsNames:(YCSnsName)shareto, ... {
-NSMutableArray *snsNames = [[NSMutableArray alloc] init];
++ (void)shareText:(NSString*)text Image:(NSString*)imageName delegate:(id)delegate ToSnsNames:(NSArray*)names{
 
-    va_list args;
-    va_start(args, shareto); // scan for arguments after firstObject.
+    if (!names) {
+        [UMSocialSnsService presentSnsIconSheetView:delegate
+                                             appKey:UmengAppKey
+                                          shareText:text
+                                         shareImage:[UIImage imageNamed:imageName]
+                                    shareToSnsNames:[NSArray arrayWithObjects:UMShareToWechatSession,UMShareToQQ,UMShareToSina,nil]
+                                           delegate:delegate];
 
-    // get rest of the objects until nil is found
-    NSMutableString *allStr = [[NSMutableString alloc] init];
-    for (YCSnsName str = shareto; str != nil; str = va_arg(args,YCSnsName)) {
-        [allStr appendFormat:@"* %u ",str];
+    } else {
+        [UMSocialSnsService presentSnsIconSheetView:delegate
+                                             appKey:UmengAppKey
+                                          shareText:text
+                                         shareImage:[UIImage imageNamed:imageName]
+                                    shareToSnsNames:names
+                                           delegate:delegate];
     }
-
-    va_end(args);
-    NSLog(@"%@ d",allStr);
-//    switch (shareto) {
-//        case YCShareDefault:
-//            <#statements#>
-//            break;
-//
-//        default:
-//            break;
-//    }
-
-
-    [UMSocialSnsService presentSnsIconSheetView:delegate
-                                         appKey:UmengAppKey
-                                      shareText:text
-                                     shareImage:[UIImage imageNamed:imageName]
-                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToWechatSession,UMShareToQQ,nil]
-                                       delegate:delegate];
 }
 
 
